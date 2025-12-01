@@ -1,0 +1,78 @@
+{
+  "name": "@zahoor/fastify-gracely",
+  "version": "0.0.1",
+  "description": "A Fastify plugin delivering graceful lifecycle management, including health checks, readiness state, and structured shutdown handling.",
+  "keywords": [
+    "fastify",
+    "plugin",
+    "plugins",
+    "graceful",
+    "gracely",
+    "health",
+    "readiness",
+    "k8s",
+    "shutdown"
+  ],
+  "homepage": "https://zahoor.wang/fastify/gracely",
+  "bugs": {
+    "url": "https://github.com/zahoorwang/fastify-plugin-gracely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zahoorwang/fastify-plugin-gracely.git"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/zahoorwang"
+    }
+  ],
+  "license": "MIT",
+  "author": "Zahoor Wang <zahoor.wang@gmail.com>",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run code:fmt && npm run code:lint && npm run code:test && npm run code:build",
+    "code:build": "rolldown -c",
+    "code:fmt": "oxfmt",
+    "code:lint": "oxlint",
+    "code:lint:fix": "oxlint --fix",
+    "code:test": "vitest run --typecheck.tsconfig tsconfig.test.json --coverage",
+    "package:sort": "sort-package-json",
+    "package:taze": "taze major -I --peer --force",
+    "test": "npm run code:test"
+  },
+  "dependencies": {
+    "@gquittet/graceful-server": "^6.0.0",
+    "fastify-plugin": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.14",
+    "fastify": "^5.6.2",
+    "oxfmt": "^0.15.0",
+    "oxlint": "^1.30.0",
+    "rolldown": "latest",
+    "rolldown-plugin-dts": "^0.18.1",
+    "sort-package-json": "^3.5.0",
+    "taze": "^19.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

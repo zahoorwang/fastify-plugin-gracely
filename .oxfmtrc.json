@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+
+  "semi": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 180,
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "trailingComma": "none",
+
+  "ignorePatterns": ["rolldown.config.ts", "vitest.config.ts", "test"]
+}

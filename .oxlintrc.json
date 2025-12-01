@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  "extends": ["recommended"],
+  "env": { "node": true },
+  "ignorePatterns": ["test", "dist", "node_modules"],
+  "rules": {
+    "semi": "off",
+    "quotes": ["error", "single"],
+    "trailing-comma": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "max-len": ["warn", { "code": 180 }],
+    "indent": ["error", 2],
+    "curly": ["error", "multi-line"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "no-trailing-spaces": "error",
+
+    "no-unused-vars": "warn",
+    "no-undef": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": ["error", "always"],
+    "no-console": "warn",
+    "no-debugger": "error",
+
+    "no-explicit-any": "warn",
+    "no-non-null-assertion": "warn",
+    "consistent-type-imports": "error",
+    "no-unused-imports": "warn"
+  }
+}
