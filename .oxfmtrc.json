@@ -7,7 +7,5 @@
   "printWidth": 180,
   "singleQuote": true,
   "arrowParens": "avoid",
-  "trailingComma": "none",
-
-  "ignorePatterns": ["rolldown.config.ts", "vitest.config.ts", "test"]
+  "trailingComma": "none"
 }

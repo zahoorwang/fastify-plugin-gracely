@@ -53,21 +53,21 @@
     "test": "npm run code:test"
   },
   "dependencies": {
-    "@gquittet/graceful-server": "^6.0.0",
+    "@gquittet/graceful-server": "^6.0.2",
     "fastify-plugin": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.15",
     "fastify": "^5.6.2",
-    "oxfmt": "^0.15.0",
-    "oxlint": "^1.30.0",
+    "oxfmt": "^0.16.0",
+    "oxlint": "^1.31.0",
     "rolldown": "latest",
-    "rolldown-plugin-dts": "^0.18.1",
+    "rolldown-plugin-dts": "^0.18.3",
     "sort-package-json": "^3.5.0",
     "taze": "^19.9.2",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.14"
+    "vitest": "^4.0.15"
   },
   "engines": {
     "node": ">=18.0.0"
