@@ -9,8 +9,8 @@
     "graceful",
     "gracely",
     "health",
+    "liveness",
     "readiness",
-    "k8s",
     "shutdown"
   ],
   "homepage": "https://zahoor.wang/fastify/gracely",
@@ -48,6 +48,7 @@
     "code:lint": "oxlint",
     "code:lint:fix": "oxlint --fix",
     "code:test": "vitest run --typecheck.tsconfig tsconfig.test.json --coverage",
+    "code:test:ui": "npm run code:test && npx -y serve -l 80 coverage/",
     "package:sort": "sort-package-json",
     "package:taze": "taze major -I --peer --force",
     "test": "npm run code:test"

@@ -2,6 +2,7 @@ import fastify from 'fastify';
 import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
 
 // import { fastifyGracely } from '../src/index';
+import { name } from '../package.json' with { type: 'json' };
 
 import type { FastifyInstance } from 'fastify';
 
@@ -76,7 +77,7 @@ async function setupServe(options: Partial<FastifyGracelyOptions> = {}, handlePr
   return instance;
 }
 
-describe('@zahoor/fastify-gracely', () => {
+describe(`plugin: ${name}`, () => {
   let serve: FastifyInstance;
 
   beforeEach(reset);

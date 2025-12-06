@@ -11,7 +11,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['html', 'text', 'lcov'],
-      exclude: ['dist', 'node_modules', '**/*.d.ts']
+      exclude: ['package.json', 'dist', 'node_modules', '**/*.d.ts']
     },
     logHeapUsage: true
   }
