@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Coverage Status](https://img.shields.io/badge/coverage-100%25-brightgreen?style=for-the-badge)]()
 
-> **The current version does not work; DO NOT USE.**
+> **The current version has not been fully tested and is considered unstable; DO NOT USE.**
 
 A robust solution for Graceful Shutdown and Health Checks in [Fastify](http://fastify.dev/) applications.
 
