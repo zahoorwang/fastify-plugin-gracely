@@ -26,7 +26,7 @@ npm i @zahoor/fastify-gracely
 
 ### Compatibility
 
-| Plugin version | `Fastify` version | `@gquittet/graceful-server `version |
+| Plugin version | `Fastify` version | `@gquittet/graceful-server` version |
 | -------------- | ----------------- | ----------------------------------- |
 | `current`      | `^5.x`            | `^6.x`                              |
 
