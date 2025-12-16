@@ -13,6 +13,9 @@ export default defineConfig({
       reporter: ['html', 'text', 'lcov'],
       exclude: ['package.json', 'dist', 'node_modules', '**/*.d.ts']
     },
+    typecheck: {
+      tsconfig: './tsconfig.test.json'
+    },
     logHeapUsage: true
   }
 });

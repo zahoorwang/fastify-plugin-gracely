@@ -12,11 +12,11 @@ This plugin wraps [@gquittet/graceful-server](https://github.com/gquittet/gracef
 
 ## Features
 
-- **Graceful Shutdown**: Listens for process signals (like `SIGTERM`), allowing active connections to complete before safely terminating the server.
 - **Automatic Runtime Detection**: Automatically identifies `local`, `container`, and `kubernetes` environments.
+- **Graceful Shutdown**: Listens for process signals (like `SIGTERM`), allowing active connections to complete before safely terminating the server.
 - **Kubernetes Support**: Automatically registers Liveness (`/live`) and Readiness (`/ready`) HTTP probes when running in a K8s cluster.
+- **Status Decorator**: Exposes the runtime environment and readiness status via `fastify.gracely` and `request.gracely` for easy access in handlers.
 - **Lifecycle Hooks**: Provides `ready`, `close`, and the asynchronous `closing` hook for custom cleanup logic.
-- **Status Decorator**: Exposes the runtime environment and readiness status via `fastify.gracely` and `request.gracely`.
 
 ## Install
 
@@ -79,6 +79,17 @@ await serve.listen({ port: 3000 });
 - `ready` (`() => void`, default: `undefined`): Callback invoked when the server is marked as ready (`READY`).
 - `close` (`() => void`, default: `undefined`): Callback invoked when the server starts closing (`SHUTTING_DOWN`).
 - `error` (`(error: Error) => void`, default: `undefined`): Callback invoked when shutdown is complete, including when a fatal error occurs.
+- `logger` (`boolean | { ready?: string, close?: string }`, default: true ): Logging configuration options for the server lifecycle events.
+  - `true`: (**Default**) Outputs default start and close messages using `fastify.log.info`.
+  - `false`: Disables logging of all startup and shutdown messages.
+  - `{ ready?: string, close?: string }`: Overrides the default `ready` or `close` log message strings.
+
+## Runtime Environment is 'none'
+
+**When `runtime: 'none'`, the plugin skips all graceful shutdown setup.**
+
+Setting this option achieves a complete bypass of the graceful shutdown integration. The decorated `fastify.gracely.ready()` will always return `false` for safety.
+If logging is enabled, a `warn` level message (`Gracely disabled by options.`) will be emitted.
 
 ## Runtime Environment Detection Logic
 
@@ -90,7 +101,7 @@ When `runtime: 'auto'`, the plugin detects the environment in the following orde
 
 ## Integration with Kubernetes
 
-> **Don't forget to enable the kubernetes mode.**
+> **Don't forget to enable the kubernetes mode or `runtime: 'kubernetes'`.**
 
 ```yml
 readinessProbe:
