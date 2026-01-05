@@ -4,12 +4,12 @@
   "description": "A Fastify plugin delivering graceful lifecycle management, including health checks, readiness state, and structured shutdown handling.",
   "keywords": [
     "fastify",
+    "plugin",
+    "plugins",
     "graceful",
     "gracely",
     "health",
     "liveness",
-    "plugin",
-    "plugins",
     "readiness",
     "shutdown"
   ],
@@ -21,7 +21,6 @@
     "type": "git",
     "url": "git+https://github.com/zahoorwang/fastify-plugin-gracely.git"
   },
-  "author": "Zahoor Wang <zahoor.wang@gmail.com>",
   "funding": [
     {
       "type": "github",
@@ -29,17 +28,18 @@
     }
   ],
   "license": "MIT",
+  "author": "Zahoor Wang <zahoor.wang@gmail.com>",
   "sideEffects": false,
   "type": "commonjs",
-  "main": "dist/index.js",
   "exports": {
     ".": "./dist/index.js"
   },
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "dist",
     "LICENSE",
-    "README.md",
-    "dist"
+    "README.md"
   ],
   "scripts": {
     "build": "npm run code:fmt && npm run code:lint && npm run code:test && npm run code:build",
@@ -64,10 +64,10 @@
     "@vitest/coverage-v8": "^4.0.16",
     "@vitest/ui": "^4.0.16",
     "fastify": "^5.6.2",
-    "oxfmt": "^0.18.0",
-    "oxlint": "^1.33.0",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.36.0",
     "rolldown": "latest",
-    "rolldown-plugin-dts": "^0.18.4",
+    "rolldown-plugin-dts": "^0.20.0",
     "sort-package-json": "^3.6.0",
     "taze": "^19.9.2",
     "typescript": "^5.9.3",

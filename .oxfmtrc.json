@@ -7,5 +7,7 @@
   "printWidth": 180,
   "singleQuote": true,
   "arrowParens": "avoid",
-  "trailingComma": "none"
+  "trailingComma": "none",
+
+  "ignorePatterns": ["package.json"]
 }

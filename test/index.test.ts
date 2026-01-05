@@ -193,7 +193,7 @@ describe(`plugin: ${name}`, () => {
   it('should use default logger: true messages for Detection, READY and SHUTDOWN', async () => {
     serve = await setupServe({ runtime: 'local', logger: true });
 
-    expect(mockLogger.info).toHaveBeenCalledWith('Gracely: Server gracely env is "%s"', 'local');
+    expect(mockLogger.info).toHaveBeenCalledWith('Gracely: Server env is "%s"', 'local');
 
     await readyPost();
     expect(mockLogger.info).toHaveBeenCalledWith('Gracely: Server is ready ~~~');
@@ -214,7 +214,7 @@ describe(`plugin: ${name}`, () => {
       logger: { ready: readySpied, close: closeSpied }
     });
 
-    expect(mockLogger.info).toHaveBeenCalledWith('Gracely: Server gracely env is "%s"', 'local');
+    expect(mockLogger.info).toHaveBeenCalledWith('Gracely: Server env is "%s"', 'local');
 
     await readyPost();
     expect(mockLogger.info).toHaveBeenCalledWith(readySpied);

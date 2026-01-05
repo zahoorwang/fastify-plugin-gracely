@@ -57,6 +57,7 @@ type GracelyLogger = {
  */
 type ResolveLoggerMetadata = Simplify<
   GracelyLogger & {
+    warn: string;
     detect: string;
     log: FastifyBaseLogger;
   }
@@ -184,18 +185,20 @@ function resolveLoggerOptions(options: Pick<FastifyGracelyOptions, 'logger'>, fa
     return undefined;
   }
 
+  const warn = 'Gracely disabled by options. (runtime: "none")';
   const ready = 'Gracely: Server is ready ~~~';
   const close = 'Gracely: Server is closed !!!';
-  const detect = 'Gracely: Server gracely env is "%s"';
+  const detect = 'Gracely: Server env is "%s"';
 
   const log = fastify.log;
 
   if (options.logger === true) {
-    return { log, ready, close, detect };
+    return { log, warn, ready, close, detect };
   }
 
   return {
     log,
+    warn,
     ready: options.logger.ready ?? ready,
     close: options.logger.close ?? close,
     detect
@@ -247,7 +250,7 @@ const plugin: FastifyGracelyPlugin = async (fastify, opts) => {
   const spec = resolveLoggerOptions({ logger }, fastify);
 
   if (runtime === 'none') {
-    spec?.log.warn('Gracely disabled by options. (runtime: "none")');
+    spec?.log.warn(spec.warn);
     setupFastifyGracely(fastify, 'none', () => false);
     return;
   }
@@ -302,7 +305,7 @@ const plugin: FastifyGracelyPlugin = async (fastify, opts) => {
  *
  * It decorates both `FastifyInstance` and `FastifyRequest` with a `gracely` object.
  */
-export const fastifyGracely = fp(plugin, {
+export const fastifyGracely: FastifyGracelyPlugin = fp(plugin, {
   fastify: '5.x',
   name: '@zahoor/fastify-gracely'
 });

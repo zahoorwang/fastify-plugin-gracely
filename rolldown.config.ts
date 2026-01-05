@@ -21,7 +21,8 @@ export default defineConfig([
       exports: 'named',
       cleanDir: true,
       chunkFileNames: `chunk.js`,
-      entryFileNames: '[name].js'
+      entryFileNames: '[name].js',
+      minify: true
     }
   },
   {
@@ -29,7 +30,7 @@ export default defineConfig([
     plugins: [
       dts({
         emitDtsOnly: true,
-        compilerOptions: { removeComments: false }
+        compilerOptions: { removeComments: false, isolatedDeclarations: true }
       })
     ],
     output: {
